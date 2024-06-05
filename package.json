@@ -1,6 +1,11 @@
 {
   "dependencies": {
-    "commander": "^12.1.0"
+    "commander": "^12.1.0",
+    "fc": "^1.6.1",
+    "fs": "^0.0.1-security",
+    "lodash": "^4.17.21",
+    "path": "^0.12.7",
+    "process": "^0.11.10"
   },
   "name": "@hexlet/code",
   "description": "[![Actions Status](https://github.com/SashaRudskiy/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/SashaRudskiy/frontend-project-46/actions)",
