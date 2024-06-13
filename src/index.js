@@ -1,25 +1,44 @@
-import path from 'node:path';
 import fs from 'fs';
-import parse from './parsers.js';
-import buildAst from './buildAST.js';
-import formatter from './formatters/index.js';
+import path from 'path';
+import _ from 'lodash';
 
-const resolvePath = (filepath) => (filepath.includes('__fixtures__')
-  ? path.resolve(process.cwd(), filepath)
-  : path.resolve(process.cwd(), (`__fixtures__/${filepath}`))
-);
+const makeAbsolutePath = (filepath) => path.resolve(process.cwd(), filepath);
+const getFileData = (filepath) => fs.readFileSync(filepath, 'utf-8');
+const jsonPrepare = (data) => JSON.parse(data);
+const findDiff = (data1, data2) => {
+  const obj1 = jsonPrepare(data1);
+  const obj2 = jsonPrepare(data2);
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+  const unionKeys = _.union(keys1, keys2).sort();
+  console.log(unionKeys);
+  const diff = unionKeys.flatMap((key) => {
+    if (!keys2.includes(key)) {
+      return `- ${key}: ${obj1[key]}`;
+    }
 
-const extractFormat = (filepath) => path.extname(filepath).slice(1);
+    if (!keys1.includes(key)) {
+      return `+ ${key}: ${obj2[key]}`;
+    }
 
-const getData = (filepath) => parse(fs.readFileSync(filepath, 'utf-8'), extractFormat(filepath));
-
-export default (filepath1, filepath2, format = 'stylish') => {
-  const path1 = resolvePath(filepath1);
-  const path2 = resolvePath(filepath2);
-
-  const data1 = getData(resolvePath(path1));
-  const data2 = getData(resolvePath(path2));
-
-  const ast = buildAst(data1, data2);
-  return formatter(ast, format);
+    if (obj1[key] === obj2[key]) {
+      return `  ${key}: ${obj1[key]}`;
+    }
+    return [
+      `- ${key}: ${obj1[key]}`,
+      `+ ${key}: ${obj2[key]}`,
+    ];
+  });
+  console.log(diff);
+  return `{\n${diff.join('\n')}\n}`;
 };
+
+const genDiff = (filepath1, filepath2) => {
+  const file1 = makeAbsolutePath(filepath1);
+  const file2 = makeAbsolutePath(filepath2);
+  const fileData1 = getFileData(file1);
+  const fileData2 = getFileData(file2);
+  return findDiff(fileData1, fileData2);
+};
+
+export default genDiff;

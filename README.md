@@ -1,104 +1,36 @@
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/sseezov/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/sseezov/frontend-project-46/actions)
+[![Actions Status](https://github.com/pooogh/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/pooogh/frontend-project-46/actions)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c7e08a3a1942ea6f71e3/maintainability)](https://codeclimate.com/github/pooogh/frontend-project-46/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/c7e08a3a1942ea6f71e3/test_coverage)](https://codeclimate.com/github/pooogh/frontend-project-46/test_coverage)
+[![Linter check](https://github.com/pooogh/frontend-project-46/blob/main/.github/workflows/linter-check.yml/badge.svg)]
 
-[![Node Status](https://github.com/sseezov/frontend-project-46/actions/workflows/node-check.yml/badge.svg)](https://github.com/sseezov/frontend-project-46/actions/workflows/node-check.yml)
-
-[![Maintainability](https://api.codeclimate.com/v1/badges/f26778f78b4abb9bf837/maintainability)](https://codeclimate.com/github/sseezov/frontend-project-46/maintainability)
-
-[![Test Coverage](https://api.codeclimate.com/v1/badges/f26778f78b4abb9bf837/test_coverage)](https://codeclimate.com/github/sseezov/frontend-project-46/test_coverage)
-
-# Вычислитель различий
-
-Данный проект представляет собой консольную утилиту для сравнения двух объектов. Объекты считываются только из файлов форматов JSON, YML и YAML.
-
-# Пример работы
+### Installation
+To install the project, run the following command:
 ```bash
-gendiff file1.json file2.json
-
-{
-    common: {
-      + follow: false
-        setting1: Value 1
-      - setting2: 200
-      - setting3: true
-      + setting3: null
-      + setting4: blah blah
-      + setting5: {
-            key5: value5
-        }
-        setting6: {
-            doge: {
-              - wow:
-              + wow: so much
-            }
-            key: value
-          + ops: vops
-        }
-    }
-    group1: {
-      - baz: bas
-      + baz: bars
-        foo: bar
-      - nest: {
-            key: value
-        }
-      + nest: str
-    }
-  - group2: {
-        abc: 12345
-        deep: {
-            id: 45
-        }
-    }
-  + group3: {
-        deep: {
-            id: {
-                number: 45
-            }
-        }
-        fee: 100500
-    }
-}
-```
-# Установка
-
-```bash
-git clone git@github.com:sseezov/frontend-project-46.git
-cd frontend-project-46
 make install
 ```
 
-# Использование
-
+### Quick Start
+To quickly get started, use the following command to see the available options:
 ```bash
-gendiff [options] <filepath1> <filepath2>
-например: gendiff -f plain file1.json file2.yaml
+gendiff -h
 ```
 
+### Usage
+#### Flat JSON Files
+To compare flat JSON files, use the following command:
 ```bash
-options:
-  -V, --version        output the version number
-  -f, --format [type]  output format (default: "stylish")
-  -h, --help           display help for command
+gendiff path/to/file1.json path/to/file2.json
+```
+Example:
+[![asciicast](https://asciinema.org/a/657551.svg)](https://asciinema.org/a/657551)
+
+#### Flat YAML Files
+For working with YAML files, you can use the file extensions `.yml` and `.yaml`.
+To compare flat YAML files, use the following command:
+```bash
+gendiff path/to/file1.yml path/to/file2.yaml
 ```
 
-Программа умеет выводить различия в трех форматах, по умолчанию это формат stylish. Также это могут быть plain и json. Для вывода результата согласно определенному формату введите -f [format]
-
-```bash
-gendiff -f plain file1.json file2.yaml
-```
-
-Пример такого вывода:
-```bash
-Property 'common.follow' was added with value: false
-Property 'common.setting2' was removed
-Property 'common.setting3' was updated. From true to null
-Property 'common.setting4' was added with value: 'blah blah'
-Property 'common.setting5' was added with value: [complex value]
-Property 'common.setting6.doge.wow' was updated. From '' to 'so much'
-Property 'common.setting6.ops' was added with value: 'vops'
-Property 'group1.baz' was updated. From 'bas' to 'bars'
-Property 'group1.nest' was updated. From [complex value] to 'str'
-Property 'group2' was removed
-Property 'group3' was added with value: [complex value]
-```
+Example:
+[![asciicast](https://asciinema.org/a/657552.svg)](https://asciinema.org/a/657552)
