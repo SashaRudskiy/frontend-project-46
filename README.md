@@ -1,36 +1,22 @@
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/pooogh/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/pooogh/frontend-project-46/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/c7e08a3a1942ea6f71e3/maintainability)](https://codeclimate.com/github/pooogh/frontend-project-46/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/c7e08a3a1942ea6f71e3/test_coverage)](https://codeclimate.com/github/pooogh/frontend-project-46/test_coverage)
-[![Linter check](https://github.com/pooogh/frontend-project-46/blob/main/.github/workflows/linter-check.yml/badge.svg)]
+[![Actions Status](https://github.com/ArtyySz/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/ArtyySz/frontend-project-46/actions)
 
-### Installation
-To install the project, run the following command:
-```bash
-make install
-```
+JSON file
+[![asciicast](https://asciinema.org/a/qgZR8pLhrRuQue6bgXfnqcpz1.svg)](https://asciinema.org/a/qgZR8pLhrRuQue6bgXfnqcpz1)
 
-### Quick Start
-To quickly get started, use the following command to see the available options:
-```bash
-gendiff -h
-```
+YAML file
+[![asciicast](https://asciinema.org/a/LaH1PzpfD8GoYD6yNDSd6Qw4w.svg)](https://asciinema.org/a/LaH1PzpfD8GoYD6yNDSd6Qw4w)
 
-### Usage
-#### Flat JSON Files
-To compare flat JSON files, use the following command:
-```bash
-gendiff path/to/file1.json path/to/file2.json
-```
-Example:
-[![asciicast](https://asciinema.org/a/657551.svg)](https://asciinema.org/a/657551)
+JSON file deep
+[![asciicast](https://asciinema.org/a/gi3Hm93yTobS4HQcH2S96HYUc.svg)](https://asciinema.org/a/gi3Hm93yTobS4HQcH2S96HYUc)
 
-#### Flat YAML Files
-For working with YAML files, you can use the file extensions `.yml` and `.yaml`.
-To compare flat YAML files, use the following command:
-```bash
-gendiff path/to/file1.yml path/to/file2.yaml
-```
+Plain json
+[![asciicast](https://asciinema.org/a/aLPHfFsvEJo0oKZyUA3lmVv0a.svg)](https://asciinema.org/a/aLPHfFsvEJo0oKZyUA3lmVv0a)
 
-Example:
-[![asciicast](https://asciinema.org/a/657552.svg)](https://asciinema.org/a/657552)
+deep json file
+[![asciicast](https://asciinema.org/a/2XHKNnc0utH91LN5NXjEzJMzA.svg)](https://asciinema.org/a/2XHKNnc0utH91LN5NXjEzJMzA)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/2992aa5c190fa63358f6/maintainability)](https://codeclimate.com/github/ArtyySz/frontend-project-46/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/2992aa5c190fa63358f6/test_coverage)](https://codeclimate.com/github/ArtyySz/frontend-project-46/test_coverage)
+
