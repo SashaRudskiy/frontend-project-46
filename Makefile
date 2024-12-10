@@ -17,3 +17,5 @@ test:
 
 test-coverage:
        npm run test:coverage
+install:
+    @echo "Installing dependencies..."
